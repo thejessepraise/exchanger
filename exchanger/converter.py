@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from typing import Optional, Union
 
 from .currencies import validate_currency_code
@@ -24,9 +24,11 @@ class CurrencyConverter:
         from_code = validate_currency_code(from_currency)
         to_code = validate_currency_code(to_currency)
         if from_code == to_code:
-            return decimal_amount
-        rate = self._provider.get_rate(from_code, to_code)
-        return decimal_amount * rate
+            result = decimal_amount
+        else:
+            rate = self._provider.get_rate(from_code, to_code)
+            result = decimal_amount * rate
+        return result.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
     def get_exchange_rate(self, from_currency: str, to_currency: str) -> Decimal:
         from_code = validate_currency_code(from_currency)
