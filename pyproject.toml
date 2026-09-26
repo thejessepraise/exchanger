@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
 authors = [
-    { name = "Your Name", email = "you@example.com" },
+    { name = "thejessepraise", email = "jesseyankson86@gmail.com" },
 ]
 keywords = ["currency", "exchange-rate", "forex", "converter", "finance"]
 classifiers = [
@@ -35,8 +35,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/exchanger"
-Issues = "https://github.com/yourusername/exchanger/issues"
+Homepage = "https://github.com/thejessepraise/exchanger"
+Issues = "https://github.com/thejessepraise/exchanger/issues"
 
 [tool.setuptools.packages.find]
 include = ["exchanger*"]
